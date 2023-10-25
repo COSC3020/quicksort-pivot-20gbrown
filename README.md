@@ -20,3 +20,23 @@ quantitatively reason with them.
 Add your answer to this markdown file. [This
 page](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
 might help with the notation for mathematical expressions.
+
+# Answer
+Median-of-three:
+1. On an average input, our chosen pivot is equally likely to be the $i^th$ smallest for any i = 1, 2, ... , n.
+2. With probability 1/2, our pivot will be from the middle $n$/2 elements – a good pivot.
+3. Any good pivot creates two partitions of size at most $3n/4$.
+4. We expect to pick one good pivot every two tries.
+5. Expected number of splits is at most 2 log<sub>(4/3)</sub> n ∈ Θ(log n).
+6. Θ($n$ log $n$) total comparisons.
+
+First element:
+1. On an average input (i.e., a random order of n items), our chosen pivot is equally likely to be the ith smallest for any i = 1, 2, ..., n.
+2. With probability 1/n, our pivot will be the first element – a pivot that may not be as balanced as other methods.
+3. A pivot from the first element can create partitions of various sizes, depending on the input data.
+4. The probability of choosing a pivot that creates balanced partitions is lower compared to methods like median-of-three.
+5. Expected number of splits is determined by the distribution of the data, and it can be highly variable.
+6. The overall performance of quicksort with a first element pivot may vary depending on the input data and its distribution.
+
+Chossing the first element or doing the median-of-three method do not have the same probability. The median-of-three method has a much better probabilty of selecting a good pivot because selecting the first element is highly dependent on a small input size. 
+
