@@ -24,12 +24,12 @@ might help with the notation for mathematical expressions.
 # Answer
 Median-of-three:
 1. On an average input, our chosen pivot is equally likely to be the $i^th$ smallest for any i = 1, 2, ... , n.
-2. With probability 1/2, our pivot will be from the middle $n$/2 elements – a good pivot.
+2. With probability 1/3, our pivot will be from the middle $n$/2 elements – a good pivot.
 3. Any good pivot creates two partitions of size at most $3n/4$.
-4. We expect to pick one good pivot every two tries.
-5. Expected number of splits is at most 2 log<sub>(4/3)</sub> n ∈ Θ(log n).
+4. We expect to pick one good pivot every three tries.
+5. Expected number of splits is at most 3 log<sub>(4/3)</sub> n ∈ Θ(log n).
 6. Θ($n$ log $n$) total comparisons.
-7. Our expected probability of choosing a good pivot will be: $P(Good Pivot) = 1/2 * 2/n = 1/n$.
+7. The probabilty of obatining a 3-to-1 split or better using median-of-three would be $11/16$ or about 68.75%
 
 First element:
 1. On an average input (i.e., a random order of n items), our chosen pivot is equally likely to be the ith smallest for any i = 1, 2, ..., n.
@@ -38,6 +38,10 @@ First element:
 4. The probability of choosing a pivot that creates balanced partitions is lower compared to methods like median-of-three.
 5. Expected number of splits is determined by the distribution of the data, and it can be highly variable.
 6. The overall performance of quicksort with a first element pivot may vary depending on the input data and its distribution.
-7. Our expected probability of choosing a good pivot will be: $P(Good Pivot) = 1/n$. 
+7. Our expected probability of choosing a good pivot using the first element will be: $P(Good Pivot) = 1/n$.
 
-Both methods have the same expected probability of choosing a good pivot, but the median-of-three method tends to create more balanced partitions, leading to better overall performance in practice. The first element method may result in less balanced partitions, impacting the efficiency of the quicksort algorithm.
+Upon revaluation the probabilities are not the same. Median-of-three will have a probability of selecting a good pivot of $11/16$ and selecting the first element will be $1/n$. Choosing the first element is simple but not optimal because as the input size increases the chances of finding a good pivot will decrease and could lead to unbalanced splits. 
+
+## Source
+
+https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/analysis-of-quicksort#:~:text=By%20the%20median%2C%20we%20mean,to%2D1%20split%20or%20better.
